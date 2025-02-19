@@ -1,0 +1,27 @@
+<div>
+    echo "# Doctor-Appointment-Booking" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/elgun85/Doctor-Appointment-Booking.git
+git push -u origin main
+
+
+composer create-project laravel/laravel pos_system
+php artisan migrate:refresh --path=database/migrations/0001_01_01_000000_create_users_table.php
+php artisan make:middleware AdminMiddleware
+php artisan make:middleware UserMiddleware
+middleware sonra bootstrap/app.php-de yaz
+->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'admin' => AdminMiddleware::class,
+            'user' => UserMiddleware::class,
+        ]);
+php artisan migrate:refresh      ---Bütün cədvəlləri silir
+php artisan migrate:refresh --seed  cədvəlləri silib yenidən yaradacaq və sonra DatabaseSeeder.php faylında olan seed verilənləri
+php artisan make:migration add_role_column_in_users --table=users
+
+
+
+</div>
