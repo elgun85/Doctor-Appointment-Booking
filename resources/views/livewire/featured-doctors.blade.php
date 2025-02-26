@@ -31,7 +31,7 @@
                 </p>
 
                 <!-- Social Brands -->
-                <div class="flex gap-2 mt-5">
+                <div class="flex justify-between mt-5 JU">
                     <div class="mt-3 space-x-1">
                         <a class="inline-flex items-center justify-center text-sm font-semibold text-gray-500 border border-gray-200 rounded-lg size-8 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
                             href="#">
@@ -59,10 +59,17 @@
                         </a>
                     </div>
 
-                    <button type="button"
+@if (Auth::user() != null)
+                    <a href="#"
                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                         Book Appointment
-                    </button>
+                    </a>
+                    @else
+                                        <a href="/login"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        Book Appointment
+                    </a>
+@endif
                 </div>
 
 

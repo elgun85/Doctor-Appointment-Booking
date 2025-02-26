@@ -10,4 +10,23 @@ class AdminDashboardController extends Controller
     {
         return view('Admin.admin_dashboard');
     }
+
+    public function loadDoctorListings()
+    {
+        return view('Admin.doctor_listing');
+    }
+
+    public function loadDoctorForm()
+    {
+        return view('Admin.doctor_form');
+    }
+
+    public function loadSpecialityListing()
+    {
+        return view('Admin.speciality');
+    }
+    public function loadSpecialityForm()
+    {
+        return view('Admin.speciality_form');
+    }
 }

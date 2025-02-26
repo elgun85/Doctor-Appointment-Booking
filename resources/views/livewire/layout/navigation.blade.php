@@ -30,9 +30,37 @@ new class extends Component
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                @if (auth()->user() && auth()->user()->role == 0)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                            {{ __('Patient Dashboard') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+
+                @if (auth()->user() && auth()->user()->role == 1)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('doctor.dashboard')" :active="request()->routeIs('doctor.dashboard')" wire:navigate>
+                            {{ __('Doctor Dashboard') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+
+                @if (auth()->user() && auth()->user()->role == 2)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" wire:navigate>
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                                       <x-nav-link :href="route('admin.doctor_listings')" :active="request()->routeIs('admin.doctor_listings')" wire:navigate>
+                            {{ __('Doctor listing') }}
+                        </x-nav-link>
+                                           <x-nav-link :href="route('admin.speciality')" :active="request()->routeIs('admin.speciality')" wire:navigate>
+                            {{ __('Speciality') }}
+                        </x-nav-link>
+
+
+                    </div>
+                @endif
                 </div>
             </div>
 

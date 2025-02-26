@@ -18,6 +18,14 @@ Route::view('profile', 'profile')
 
     Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('admin_dashboard', [AdminDashboardController::class, 'loadAdminDAshboard'])->name('admin.dashboard');
+
+    Route::get('doctor_listings', [AdminDashboardController::class, 'loadDoctorListings'])->name('admin.doctor_listings');
+    Route::get('/create/doctor', [AdminDashboardController::class, 'loadDoctorForm'])->name('admin.create.doctor');
+
+                                                /* Speciality */
+    Route::get('/speciality', [AdminDashboardController::class, 'loadSpecialityListing'])->name('admin.speciality');
+    Route::get('/create/speciality', [AdminDashboardController::class, 'loadSpecialityForm'])->name('admin.create.speciality');
+
 });
 
 
